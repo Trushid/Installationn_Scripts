@@ -22,3 +22,18 @@ Start and Enable Docker:-- sudo systemctl start docker  &&   sudo systemctl enab
 
 
 #this is for user data when creating new instance
+
+
+
+
+
+
+
+
+CREATE DOCKER VOLUMES:--
+
+CREATE VOLUME: docker volume create --name <VOLUME NAGE> --opt type=none  --opt device=<DEVICE_PATh> --opt o=bind
+
+ATTACH VOLUMES WHILE RUNNING CONTAINER:- docker run -d -p <PORTS> --mount source=<VOLUME-NAME>,target=/data <IMAGENAME:TAG> 
+
+
