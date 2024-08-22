@@ -34,6 +34,36 @@ CREATE DOCKER VOLUMES:--
 
 CREATE VOLUME: docker volume create --name <VOLUME NAGE> --opt type=none  --opt device=<DEVICE_PATh> --opt o=bind
 
-ATTACH VOLUMES WHILE RUNNING CONTAINER:- docker run -d -p <PORTS> --mount source=<VOLUME-NAME>,target=/data <IMAGENAME:TAG> 
+ATTACH VOLUMES WHILE RUNNING CONTAINER:- docker run -d -p <PORTS> --mount source=<VOLUME-NAME>,target=<inside container directory> <IMAGENAME:TAG> 
+
+CREATE DOCKER NETWORKS:
+
+TO CHECK AVALABEL NETWORK:- docker network ls
+
+TO CREATE NETWORK:- docker network create -d <NETWORK-NAME>
+
+RUN_MYSQL CONTAINER AND ATTACHED NETWORK:-  docker run -d -p <PORTS> -e MYSQL_ROOT_PASSWORD=<PASSWORD> -e MYSQL_DATABASE=<DB-NAME> -e MYSQL_USER=<MYSQL_USERNAME> -e MYSQL_PASSWORD=<PASSWORD> --name mysql --network <NETWORKNAME> <IMAGENAME_TAG>
+
+
+RUN-FLASKA-APP & ATTACHED NETWORK: docker run -d -p 5000:5000 -e MYSQL_HOST=mysql -e MYSQL_USER=admin -e MYSQL_PASSWORD=admin -e MYSQL_DB=testdb --name flask-app --network two-tier-app-nw flask-app:latest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
